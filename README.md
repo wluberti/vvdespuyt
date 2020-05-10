@@ -7,6 +7,7 @@ This Github repository will contain the sourcecode of the website vvdespuyt.nl
 * Comments, documentation and explanations should be written in English
 * All new code must be submitted via a pull request before integrating with the master branch
 * Updating existing code must be submitted via a pull request before integrating with the master branch, unless it is a textual (customer facing) change
+* Local testing and development sould be done in Docker (docker-compose file available)
 
 # Todo
 
