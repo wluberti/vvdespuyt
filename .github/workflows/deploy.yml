@@ -28,4 +28,4 @@ jobs:
         ftp-server: sftp://${{ secrets.HOSTING_URL }}:22/
         ftp-username: ${{ secrets.HOSTING_USERNAME }}
         ftp-password: ${{ secrets.HOSTING_PASSWORD }}
-        # git-ftp-args: --insecure
+        git-ftp-args: --insecure
