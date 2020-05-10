@@ -81,10 +81,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Volleybalvereniging De Spuyt
+                    Contact
                 </div>
 
                 <div class="links">
+                    <a href="/">Home</a>
                     <a href="/about">Wie zijn wij?</a>
                     <a href="/teams">Teams</a>
                     <a href="/media">Foto's</a>
