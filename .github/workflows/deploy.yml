@@ -12,12 +12,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run composer update to get all the used PHP packages
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+        run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
       - name: Compress all the files to speed up the transfer process
         uses: TonyBogdanov/zip@1.0
         with:
-          args: zip -qq -r ./archive.zip .
+          args: zip -r ./archive.zip .
 
       - name: Transfer the files to the hosting party
         uses: SamKirkland/FTP-Deploy-Action@3.1.0
@@ -25,4 +25,4 @@ jobs:
           ftp-server: sftp://${{ secrets.HOSTING_URL }}/subdomains/dev/
           ftp-username: ${{ secrets.HOSTING_USERNAME }}
           ftp-password: ${{ secrets.HOSTING_PASSWORD }}
-          git-ftp-args: --insecure -a
+          git-ftp-args: --insecure --all -vv
