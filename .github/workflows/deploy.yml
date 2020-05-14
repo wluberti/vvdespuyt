@@ -14,12 +14,12 @@ jobs:
       - name: Run composer update to get all the used PHP packages
         run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
-      - name: Compress all the files to speed up the transfer process
+      - name: Compress vendor files to speed up the transfer process
         uses: TonyBogdanov/zip@1.0
         with:
           args: zip -r ./vendor.zip ./vendor
 
-      - name: Delete all files that do not need to be transferred
+      - name: Delete vendor directory
         run: rm -rf vendor
 
       - name: Transfer the files to the hosting party

@@ -1,6 +1,6 @@
 <?php
 $zip = new ZipArchive;
-if ($zip->open('archive.zip') === TRUE) {
+if ($zip->open('vendor.zip') === TRUE) {
     echo $zip->extractTo('.');
     $zip->close();
 } else {
