@@ -19,4 +19,4 @@ jobs:
         ftp-server: sftp://${{ secrets.HOSTING_URL }}/subdomains/dev/
         ftp-username: ${{ secrets.HOSTING_USERNAME }}
         ftp-password: ${{ secrets.HOSTING_PASSWORD }}
-        git-ftp-args: --insecure --silent
+        git-ftp-args: --insecure --silent -a
