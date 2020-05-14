@@ -1,22 +1,28 @@
 name: vvdespuyt
 
 on:
-  push:
-    branches: [ master ]
+push:
+  branches: [ master ]
 
 jobs:
   build-website:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout latest version of the website from Github
+        uses: actions/checkout@v2
 
-    - name: Install Dependencies
-      run: bash getComposer.sh
-  
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.0
-      with:
-        ftp-server: sftp://${{ secrets.HOSTING_URL }}/subdomains/dev/
-        ftp-username: ${{ secrets.HOSTING_USERNAME }}
-        ftp-password: ${{ secrets.HOSTING_PASSWORD }}
-        git-ftp-args: --insecure --silent -a
+      - name: Compress all the files to speed up the transfer process
+        uses: TonyBogdanov/zip@1.0
+        with:
+          args: zip -qq -r ./archive.zip .
+
+      - name: Cleanup all the files that do not need to be transported
+        run: find . -not -name 'archive.zip' -not -name 'deploy.php' | xargs rm
+
+      - name: Transfer the files to the hosting party
+        uses: SamKirkland/FTP-Deploy-Action@3.1.0
+        with:
+          ftp-server: sftp://${{ secrets.HOSTING_URL }}/subdomains/dev/
+          ftp-username: ${{ secrets.HOSTING_USERNAME }}
+          ftp-password: ${{ secrets.HOSTING_PASSWORD }}
+          git-ftp-args: --insecure -a
