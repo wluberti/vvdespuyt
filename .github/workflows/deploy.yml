@@ -29,3 +29,7 @@ jobs:
           ftp-username: ${{ secrets.HOSTING_USERNAME }}
           ftp-password: ${{ secrets.HOSTING_PASSWORD }}
           git-ftp-args: --insecure --all --verbose --force
+
+  deploy-vendor:
+    name: Run deploy script on the website so that the vendor directory is available
+    run: curl https://dev.vvdespuyt.nl/deploy.php
