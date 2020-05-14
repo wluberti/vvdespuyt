@@ -17,18 +17,15 @@ jobs:
       - name: Compress all the files to speed up the transfer process
         uses: TonyBogdanov/zip@1.0
         with:
-          args: zip -r ./archive.zip .
+          args: zip -r ./vendor.zip ./vendor
 
-      - name: show files in workspace
-        run: ls -la
+      - name: Delete all files that do not need to be transferred
+        run: rm -rf vendor
 
-#      - name: Delete all files that do not need to be transferred
-#        run: find . ! -name 'deploy.php' ! -name 'archive.zip' ! -name '.' ! -name '..' ! -name '.git' -exec rm -rf {} +
-
-#      - name: Transfer the files to the hosting party
-#        uses: SamKirkland/FTP-Deploy-Action@3.1.0
-#        with:
-#          ftp-server: sftp://${{ secrets.HOSTING_URL }}/subdomains/dev/
-#          ftp-username: ${{ secrets.HOSTING_USERNAME }}
-#          ftp-password: ${{ secrets.HOSTING_PASSWORD }}
-#          git-ftp-args: --insecure --all --verbose --force
+      - name: Transfer the files to the hosting party
+        uses: SamKirkland/FTP-Deploy-Action@3.1.0
+        with:
+          ftp-server: sftp://${{ secrets.HOSTING_URL }}/subdomains/dev/
+          ftp-username: ${{ secrets.HOSTING_USERNAME }}
+          ftp-password: ${{ secrets.HOSTING_PASSWORD }}
+          git-ftp-args: --insecure --all --verbose --force
