@@ -19,13 +19,16 @@ jobs:
         with:
           args: zip -r ./archive.zip .
 
-      - name: Delete all files that do not need to be transferred
-        run: find . ! -name 'deploy.php' ! -name 'archive.zip' ! -name '.' ! -name '..' ! -name '.git' -exec rm -rf {} +
+      - name: show files in workspace
+        run: ls -la
 
-      - name: Transfer the files to the hosting party
-        uses: SamKirkland/FTP-Deploy-Action@3.1.0
-        with:
-          ftp-server: sftp://${{ secrets.HOSTING_URL }}/subdomains/dev/
-          ftp-username: ${{ secrets.HOSTING_USERNAME }}
-          ftp-password: ${{ secrets.HOSTING_PASSWORD }}
-          git-ftp-args: --insecure --all --verbose --force
+#      - name: Delete all files that do not need to be transferred
+#        run: find . ! -name 'deploy.php' ! -name 'archive.zip' ! -name '.' ! -name '..' ! -name '.git' -exec rm -rf {} +
+
+#      - name: Transfer the files to the hosting party
+#        uses: SamKirkland/FTP-Deploy-Action@3.1.0
+#        with:
+#          ftp-server: sftp://${{ secrets.HOSTING_URL }}/subdomains/dev/
+#          ftp-username: ${{ secrets.HOSTING_USERNAME }}
+#          ftp-password: ${{ secrets.HOSTING_PASSWORD }}
+#          git-ftp-args: --insecure --all --verbose --force
