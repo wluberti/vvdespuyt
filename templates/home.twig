@@ -2,7 +2,17 @@
 
 {{ include('_menu.twig') }}
 <div class="container">
-<h1>Hello, bezoeker!</h1>
+{%- if lang == 'nl' -%}
+{#- Hier moet de Nederlandse tekst komen -#}
+    <h1>Hallo, bezoeker!</h1>
 
+{#- Einde Nederlandse sectie -#}
+{%- else -%}
+{#- Here goes the English text -#}
+
+    <h1>Hello, visitor!</h1>
+
+{#- End of English section -#}
+{%- endif -%}
 </div>
 {{ include('_footer.twig') }}
