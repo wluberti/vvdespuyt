@@ -53,3 +53,9 @@ code {
 .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
     color: rgba(255, 255, 255, 1);
 }
+
+.notification_error {
+    color: crimson;
+    font-weight: 300;
+    text-align: center;
+}
