@@ -2,8 +2,9 @@
 
 {{ include('_menu.twig') }}
 <div class="container">
+{% if lang == 'nl' %}
 <h1>Geschiedenis</h1>
-<p>Ja, wij zijn echt vernoemd naar een café: Café de Spuyt...</p>
+<p>Ja, wij zijn echt vernoemd naar een café: <a href="http://www.cafedespuyt.nl/" target="_blank">Café de Spuyt...</a></p>
 
 <p>Al in 1983 kwam in café De Spuyt regelmatig een groepje enthousiaste volleyballers bij elkaar. Van een echte club was toen nog geen sprake; het bleef lange tijd bij onderling een partijtje spelen. Maar op een gegeven moment ontstond er behoefte aan daadwerkelijke competitie te gaan spreken. Diverse spelers gingen in de officiële Nevobo competitie spelen. Anderen kozen voor het recreantenbestaan binnen onze prille vereniging.</p>
 
@@ -17,5 +18,23 @@
 
 <p>Ja, onze leden zijn over het algemeen ouder dan 25 jaar, verder wordt, net als de rest van de stad, ook De Spuyt steeds internationaler. Bovendien zijn de leden erg tevreden over hun vereniging: de helft is langer dan 5 jaar lid. Reken maar van yes dat het te maken heeft met de eerder genoemde unieke combinatie.</p>
 
+<p style="text-align: center;"><img src="/images/oldFlyer1.jpg" alt="Een oud club magazine"></p>
+
+{% else %}
+<h1>History</h1>
+<p>Yes, we are really named after a pub, <a href="http://www.cafedespuyt.nl/" target="_blank">Café de Spuyt...</a></p>
+
+<p>Already in 1983, a group of enthusiastic volleyball players was hanging out in Café’ De Spuyt. It was not yet a real club at that time, for long time it was just about playing together and have fun. But at a certain point this was not enough anymore: there was a need for real competition!</p>
+
+<p>This is how the Volleyball Club De Spuyt was created on 31th August 1987</p>
+
+<p>Several players started playing in the official Nevobo competition. Others opted for recreational volleyball. The founders of De Spuyt had a small, well-organized association… small enough to be known to everyone.Originally, the founders wanted an association with a maximum of two competition teams while most members would play in a recreational manner. Nowadays De Spuyt is a medium-sized association, with 12 competition teams and more than hundred members who all enjoy playing and social time together after the games. The combination of sport club and own café certainly contributed to this successful growth. Only a few clubs in Amsterdam can state they have such a golden mix right in the center of the city.</p>
+
+<p>Does the average Spuyt member meet a certain profile?</p>
+
+<p>Yes, our members are generally older than 25, and, like the rest of the city, De Spuyt is also becoming more and more international. Moreover, the members are very satisfied with their association: half of them have been members for more than 5 years. It might have something to do with the unique combination mentioned above...</p>
+
+<p style="text-align: center;"><img src="/images/oldFlyer1.jpg" alt="An old club magazine"></p>
+{% endif %}
 </div>
 {{ include('_footer.twig') }}

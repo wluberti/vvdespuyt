@@ -4,7 +4,7 @@ body {
 
 .container {
     width: auto;
-    max-width: 680px;
+    max-width: 780px;
     padding: 0 15px;
 }
 
@@ -21,7 +21,7 @@ body {
     user-select: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 568px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
