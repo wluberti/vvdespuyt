@@ -1,0 +1,19 @@
+{{ include('_header.twig') }}
+{{ include('_menu.twig') }}
+
+<div class="container">
+{%- if lang == 'nl' -%}
+{#- Hier moet de Nederlandse tekst komen -#}
+    <h1>Aanmelden bij de Spuyt!</h1>
+
+    <p>Zijn we mee bezig...</p>
+{#- Einde Nederlandse sectie -#}
+{%- else -%}
+{#- Here goes the English text -#}
+    <h1>Join de Spuyt!</h1>
+
+    <p>Coming soon...</p>
+{#- End of English section -#}
+{%- endif -%}
+</div>
+{{ include('_footer.twig') }}

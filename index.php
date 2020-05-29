@@ -17,6 +17,7 @@ if (isset($_GET["lang"])) {
         $notifications[] = sprintf("Error: '%s' not found as language, defaulting to 'en'", $lang);
         $lang = 'en';
     }
+    // 86400 * 365 = 1 year
     setcookie($cookieName, $lang, time() + (86400 * 365), "/");
     header('Location:/');
 } elseif (isset($_COOKIE[$cookieName])) {

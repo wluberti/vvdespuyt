@@ -1,0 +1,17 @@
+{{ include('_header.twig') }}
+{{ include('_menu.twig') }}
+
+<div class="container">
+{%- if lang == 'nl' -%}
+{#- Hier moet de Nederlandse tekst komen -#}
+    <h1>Recreatievolleybal bij volleybalvereniging de Spuyt!</h1>
+
+{#- Einde Nederlandse sectie -#}
+{%- else -%}
+{#- Here goes the English text -#}
+    <h1>Recreational volleybal at Volleybal club de Spuyt!</h1><h1>Hello, visitor!</h1>
+
+{#- End of English section -#}
+{%- endif -%}
+</div>
+{{ include('_footer.twig') }}
