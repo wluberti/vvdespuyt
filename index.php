@@ -3,6 +3,7 @@
 require_once 'vendor/autoload.php';
 $templateDir = 'templates/';
 $notifications = [];
+$defaultLanguage = 'nl';
 
 $loader = new \Twig\Loader\FilesystemLoader($templateDir);
 $twig = new \Twig\Environment($loader, [
@@ -14,16 +15,18 @@ $cookieName = 'language';
 if (isset($_GET["lang"])) {
     $lang = htmlspecialchars($_GET["lang"]);
     if (!in_array($lang, ['nl', 'en'])) {
-        $notifications[] = sprintf("Error: '%s' not found as language, defaulting to 'en'", $lang);
-        $lang = 'en';
+        $lang = $defaultLanguage;
     }
     // 86400 * 365 = 1 year
     setcookie($cookieName, $lang, time() + (86400 * 365), "/");
-    header('Location:/');
+
+    // Make the URL bar look nice again (e.g. removing the '?lang=XX' part)
+    $cleanLocation = htmlspecialchars(preg_replace('/\?lang=\w\w/i', '', $_SERVER['REQUEST_URI']));
+    header('Location:' . $cleanLocation);
 } elseif (isset($_COOKIE[$cookieName])) {
     $lang = $_COOKIE[$cookieName];
 } else {
-    $lang = 'nl'; // If no language prefence is found
+    $lang = $defaultLanguage; // If no language prefence is found
 }
 
 // Detecting route to determine which template to load
