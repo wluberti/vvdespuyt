@@ -11,7 +11,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">
-                {%- if lang == 'nl' -%}Geschiedenis{%- else -%}History{%- endif -%}
+                    {%- if lang == 'nl' -%}Geschiedenis{%- else -%}History{%- endif -%}
                 </a>
             </li>
             <li class="nav-item dropdown">
@@ -44,13 +44,23 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/recreational/team">
-                    {%- if lang == 'nl' -%}Recreatanten{%- else -%}Recreational team{%- endif -%}
+                    {%- if lang == 'nl' -%}Recreanten{%- else -%}Recreational team{%- endif -%}
                     </a>
                     <a class="dropdown-item" href="/recreational/instuyf">Instuyf</a>
                     <a class="dropdown-item" href="/recreational/museumvolley">Museumvolley</a>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/join">
+                    {%- if lang == 'nl' -%}Aanmelden{%- else -%}Join the club{%- endif -%}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/facebook">Facebook</a>
+            </li>
         </ul>
+
+        {# Do not edit beyong this point (Items will be aligned to the right if you do) #}
         {% if lang == 'nl' %}
             <a href="/?lang=en"><img src="/images/flag_en_small.png" alt="English"></a>
         {% else %}

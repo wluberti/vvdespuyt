@@ -30,10 +30,14 @@ foreach (glob($templateDir . "[!_]*.twig") as $template) {
     $foundTemplates[] = explode('/', $template)[1];
 }
 if (isset($_SERVER['REQUEST_URI'])) {
-    $requestedPage = explode('/', $_SERVER['REQUEST_URI'])[1] . ".twig";
+    $requestedPage = explode('/', (htmlspecialchars($_SERVER['REQUEST_URI'])))[1] . ".twig";
+
     if (in_array($requestedPage, $foundTemplates)) {
         $displayPage = $requestedPage;
+    } elseif ($requestedPage === ".twig") {
+        $displayPage = 'home.twig';
     } else {
+        $notifications[] = sprintf("Error: '%s' not found, but here is our homepage :-)", $requestedPage);
         $displayPage = 'home.twig';
     }
 }

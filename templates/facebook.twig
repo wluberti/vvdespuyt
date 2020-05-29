@@ -1,0 +1,32 @@
+{{ include('_header.twig') }}
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0"></script>
+{{ include('_menu.twig') }}
+
+<div class="container">
+    <div>
+        <p>
+        {%- if lang == 'nl' -%}
+            Hier kan je een kijkje nemen op onze <a href="https://www.facebook.com/vvdespuyt" target="_blank">Facebook pagina</a>
+        {%- else -%}
+            Here you can get a sneak preview of our <a href="https://www.facebook.com/vvdespuyt" target="_blank">Facebook page</a>
+        {%- endif -%}
+        </p>
+    </div>
+
+    <div class="fb-page"
+         data-href="https://www.facebook.com/vvdespuyt/"
+         data-tabs="timeline"
+         data-width="1000"
+         data-height="2000"
+         data-small-header="false"
+         data-adapt-container-width="true"
+         data-hide-cover="false"
+         data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/vvdespuyt/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/vvdespuyt/">Volleybalvereniging de Spuyt</a>
+        </blockquote>
+    </div>
+</div>
+
+{{ include('_footer.twig') }}
